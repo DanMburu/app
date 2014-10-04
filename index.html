@@ -24,24 +24,31 @@
 					alert('ready');
 					navigator.notification.alert('This app requires an internet connection');
 					window.location="http://kendevs.com/dev/deliva/"; 
+					
+					alert('done');
                // },2000);
             }
             
             function loadApp(){
 			   try {
+				   
+				   alert('called');
 				  $('.info').hide();
                 $('.loader').show();
                 var networkState = navigator.connection.type;
                 
                 if (networkState == Connection.NONE) {
+					
+					
 				    alert('no internet');
                     $('.loader').fadeOut();
                     $('.info').fadeIn();
                 }
                 else {
-                        //navigator.app.loadUrl("http://kendevs.com/dev/deliva/", {
-                        //openExternal: false
-                    //});
+					 alert('navigating');
+                        navigator.app.loadUrl("http://kendevs.com/dev/deliva/", {
+                        openExternal: false
+                    });
                     //navigator.app.exitApp();
                     //var ref = window.open('http://kendevs.com/dev/deliva/', '', 'location=no');
                 }
