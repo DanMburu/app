@@ -21,9 +21,9 @@
 				
                 loadApp();
 				setTimeout(function(){
-	                    navigator.app.loadUrl("http://kendevs.com/dev/deliva/", {
-                        openExternal: false});
-                },5000);
+					navigator.notification.alert('This app requires an internet connection');
+					window.location="http://kendevs.com/dev/deliva/"; 
+                },2000);
             }
             
             function loadApp(){
@@ -31,22 +31,22 @@
 				  $('.info').hide();
                 $('.loader').show();
                 var networkState = navigator.connection.type;
-                alert(networkState);
+                
                 if (networkState == Connection.NONE) {
 				    alert('no internet');
                     $('.loader').fadeOut();
                     $('.info').fadeIn();
                 }
                 else {
-                        navigator.app.loadUrl("http://kendevs.com/dev/deliva/", {
-                        openExternal: false
-                    });
+                        //navigator.app.loadUrl("http://kendevs.com/dev/deliva/", {
+                        //openExternal: false
+                    //});
                     //navigator.app.exitApp();
-                    var ref = window.open('http://kendevs.com/dev/deliva/', '', 'location=no');
+                    //var ref = window.open('http://kendevs.com/dev/deliva/', '', 'location=no');
                 }
 				}
 				catch(err) {
-					alert(err.message);
+					alert('Caught error:'.err.message);
 				}
 			
               
