@@ -31,7 +31,7 @@
 				  $('.info').hide();
                 $('.loader').show();
                 var networkState = navigator.connection.type;
-                
+                alert(networkState);
                 if (networkState == Connection.NONE) {
 				    alert('no internet');
                     $('.loader').fadeOut();
