@@ -19,11 +19,12 @@
             
             function onDeviceReady(){
 				
-                loadApp();
-				setTimeout(function(){
+                //loadApp();
+				//setTimeout(function(){
+					alert('ready');
 					navigator.notification.alert('This app requires an internet connection');
 					window.location="http://kendevs.com/dev/deliva/"; 
-                },2000);
+               // },2000);
             }
             
             function loadApp(){
