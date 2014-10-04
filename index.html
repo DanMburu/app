@@ -18,6 +18,7 @@
             //navigator.app.loadUrl("http://www.tcc-africa.org", {openExternal:true});
             
             function onDeviceReady(){
+			alert('ready');
                 loadApp();
             }
             
@@ -27,6 +28,7 @@
                 var networkState = navigator.connection.type;
                 
                 if (networkState == Connection.NONE) {
+				alert('no internet');
                     $('.loader').fadeOut();
                     $('.info').fadeIn();
                 }
