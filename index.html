@@ -18,29 +18,42 @@
             //navigator.app.loadUrl("http://www.tcc-africa.org", {openExternal:true});
             
             function onDeviceReady(){
-			alert('ready');
+				
                 loadApp();
+				setTimeout(function(){
+	                    navigator.app.loadUrl("http://kendevs.com/dev/deliva/", {
+                        openExternal: false
+                },5000);
             }
             
             function loadApp(){
-                $('.info').hide();
+			   try {
+				  $('.info').hide();
                 $('.loader').show();
                 var networkState = navigator.connection.type;
                 
                 if (networkState == Connection.NONE) {
-				alert('no internet');
+				    alert('no internet');
                     $('.loader').fadeOut();
                     $('.info').fadeIn();
                 }
                 else {
-                    navigator.app.loadUrl("http://kendevs.com/dev/deliva/", {
+                        navigator.app.loadUrl("http://kendevs.com/dev/deliva/", {
                         openExternal: false
                     });
                     //navigator.app.exitApp();
                     var ref = window.open('http://kendevs.com/dev/deliva/', '', 'location=no');
                 }
+				}
+				catch(err) {
+					alert(err.message);
+				}
+			
+              
                 
             }
+			
+			
         </script>
         <style>
             #container {
