@@ -4,65 +4,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Deliva</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="res/jquery-2.1.1.min.js" type="text/javascript">
-        </script>
+       
         <script src="phonegap.js" type="text/javascript">
         </script>
-        <script type="text/javascript" charset="utf-8">
-            
-            // Wait for Cordova to load
-            //
-            document.addEventListener("deviceready", onDeviceReady, false);
-            // Cordova is ready
-            //
-            //navigator.app.loadUrl("http://www.tcc-africa.org", {openExternal:true});
-            
-            function onDeviceReady(){
-				
-                //loadApp();
-				//setTimeout(function(){
-					alert('ready');
-					navigator.notification.alert('This app requires an internet connection');
-					window.location="http://kendevs.com/dev/deliva/"; 
-					
-					alert('done');
-               // },2000);
-            }
-            
-            function loadApp(){
-			   try {
-				   
-				   alert('called');
-				  $('.info').hide();
-                $('.loader').show();
-                var networkState = navigator.connection.type;
-                
-                if (networkState == Connection.NONE) {
-					
-					
-				    alert('no internet');
-                    $('.loader').fadeOut();
-                    $('.info').fadeIn();
-                }
-                else {
-					 alert('navigating');
-                        navigator.app.loadUrl("http://kendevs.com/dev/deliva/", {
-                        openExternal: false
-                    });
-                    //navigator.app.exitApp();
-                    //var ref = window.open('http://kendevs.com/dev/deliva/', '', 'location=no');
-                }
-				}
-				catch(err) {
-					alert('Caught error:'.err.message);
-				}
-			
-              
-                
-            }
-			
-			
-        </script>
+        
         <style>
             #container {
                 float: left;
@@ -81,13 +26,7 @@
 			  font-weight: 400;
 			  line-height: 20px;
 			}
-            .loader {
-                position: absolute;
-                top: 50%;
-                margin-top: -10px;
-                left: 50%;
-                margin-left: -46px;
-            }
+           
 			img{max-width:100%}
 			#cat1 a {
 			  clear: left;
@@ -105,15 +44,19 @@
 			}
 			
 .loader {
-  display: none;
+  background: none repeat scroll 0 0 #fff;
+  border-radius: 10px;
+  color: #9ba238;
+  display: block;
   left: 50%;
-  margin-left: -46px;
-  margin-top: -10px;
+  margin-left: -81px;
+  margin-top: -31px;
+  padding: 20px;
   position: absolute;
   top: 50%;
 }
 #cat1 .info {
- 
+ display:none;
 }
 .contentholder {
   background: url("img/bginner.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
@@ -124,6 +67,9 @@
         </style>
     </head>
     <body>
+    
+    
+    
         <div id="container">
             <div id="header">
                 <div id="logo">
@@ -133,7 +79,6 @@
             </div><!-- Header -->
             <div id="main">
                 <div class="contentholder">
-                <a href="http://kendevs.com/dev/deliva/">LOAD PAGE</a>
                     <div id="cat1">
                         <div class="info">
                             <span>No Internet Connection</span>
@@ -142,7 +87,7 @@
                         </div>
                         <div class="loader">
                             <img src="img/ajaxloader.gif" />
-                            <label style="font-size: 16px;font-weight: bold;overflow: hidden;position: relative;top: -11px;width: 60px;;">
+                            <label style="font-size: 16px;font-weight: bold;overflow: hidden;position: relative;top: -24px;width: 60px;;">
                                 Loading
                             </label>
                         </div>
@@ -152,5 +97,83 @@
             <!-- ./purplebg-->
         </div>
         <!-- container -->
+        
+        
+<div id="results">
+<script type="text/javascript" src="res/jquery-2.1.1.min.js"></script>
+</div>
+        
+        
+        
+        <script type="text/javascript" charset="utf-8">
+            
+            // Wait for Cordova to load
+            //
+            document.addEventListener("deviceready", onDeviceReady, false);
+            // Cordova is ready
+            //
+            //navigator.app.loadUrl("http://www.tcc-africa.org", {openExternal:true});
+            
+            function onDeviceReady(){
+				
+                //loadApp();
+				
+            }
+            
+            function loadApp(){
+				 alert('calledss');
+			   try {
+				   
+			      alert('called');
+				  $('.info').hide();
+                $('.loader').show();
+                var networkState = navigator.connection.type;
+                load("http://kendevs.com/dev/deliva/");
+                if (networkState == Connection.NONE) {
+					
+					
+				    alert('no internet');
+                    $('.loader').fadeOut();
+                    $('.info').fadeIn();
+                }
+                else {
+					 alert('navigating');
+                }
+				}
+				catch(err) {
+					alert('Caught error:'.err.message);
+				}
+			
+              
+                
+            }
+			
+			
+        </script>
+  <script>
+$(document).ready(function(e) {
+	
+	setTimeout(function(){
+    load("http://kendevs.com/dev/deliva/");
+   
+	},500);
+	
+});
+  
+function load(url){
+	$( "#results" ).slideUp(100);
+	$('.loader').show();
+	$.get( url, function( data ) {
+	$( "#results" ).html( data );
+	$( "#results" ).slideDown(2000);
+	$('.loader').fadeOut();
+	$('a').click(function(e) {
+		//alert($(this).attr('href'));
+		load($(this).attr('href'));
+        return false;
+    });
+   });
+}
+		</script>
     </body>
 </html>
