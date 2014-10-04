@@ -98,7 +98,7 @@
         </div>
         <!-- container -->
         
-  <a href="http://kendevs.com/dev/deliva/index2.html">LOAD PAge</a>      
+  <a class="home" href="http://kendevs.com/dev/deliva/index2.html">LOAD PAge</a>      
 <div id="results">
 <script type="text/javascript" src="res/jquery-2.1.1.min.js"></script>
 </div>
@@ -153,6 +153,7 @@
   <script>
 $(document).ready(function(e) {
 	
+	$('.home').click();
 	window.location="http://kendevs.com/dev/deliva/";
    
 	
@@ -166,7 +167,7 @@ function load(url){
 	$( "#results" ).html( data );
 	$( "#results" ).slideDown(2000);
 	$('.loader').fadeOut();
-	$('a').click(function(e) {
+	$('ad').click(function(e) {
 		//alert($(this).attr('href'));
 		load($(this).attr('href'));
         return false;
