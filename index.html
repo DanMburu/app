@@ -49,6 +49,7 @@
   position: fixed;
   width: 100%;
     display: block;
+	display:none;
 }			
 .loader {
   background: none repeat scroll 0 0 #fff;
@@ -165,7 +166,10 @@ $(document).ready(function(e) {
 	//window.location="http://kendevs.com/dev/deliva/index2.html";
 	//load('http://kendevs.com/dev/deliva/');
 	},100);
-   
+   $('a').click(function(e) {
+		$('.overlay').fadeIn();
+		
+    });
 	
 	
 });
