@@ -194,13 +194,17 @@ By signing up, I agree to Deliva’s <a href="#">Terms of Service</a>, <a href="
 $(document).ready(function(e) {
 	$('#results').fadeIn(2000);
 	//$('.home').click();
-	setTimeout(function(){
-	//window.location="http://kendevs.com/dev/deliva/index2.html";
-	//load('http://kendevs.com/dev/deliva/');
-	},100);
+	
    $('a').click(function(e) {
-		$('.overlay').fadeIn();
-		
+	$('.overlay').fadeIn();
+	var url=$(this).attr('href');
+	setTimeout(function(){
+		alert(url);
+	     window.location=url;
+	//load('http://kendevs.com/dev/deliva/');
+	},1000);
+   
+   return false;
     });
 	
 	
